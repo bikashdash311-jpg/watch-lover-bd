@@ -1,0 +1,121 @@
+<!-- =========================
+ADD PRODUCT PAGE FORM CODE
+Copy → Paste inside your add-product page
+========================= -->
+
+<form action="process_add_product.php" method="POST" enctype="multipart/form-data">
+
+    <!-- Basic Information -->
+    <div class="card">
+        <h2>Basic Information</h2>
+
+        <!-- Product Name -->
+        <label>Product Name *</label>
+        <input type="text" name="product_name" placeholder="Enter product name" required>
+
+        <!-- Slug -->
+        <label>Slug</label>
+        <input type="text" name="slug" placeholder="auto-generated-from-name">
+
+        <!-- Product Type -->
+        <label>Product Type</label>
+        <select name="product_type">
+            <option value="simple">Simple Product</option>
+            <option value="variable">Variable Product</option>
+        </select>
+
+        <!-- Category -->
+        <label>Category *</label>
+        <select name="category_id" required>
+            <option value="">Select Category</option>
+            <option value="1">Men's Watch</option>
+            <option value="2">Women's Watch</option>
+            <option value="3">Electronics</option>
+        </select>
+
+        <!-- Brand -->
+        <label>Brand</label>
+        <select name="brand_id">
+            <option value="">No Brand</option>
+            <option value="1">Casio</option>
+            <option value="2">Naviforce</option>
+            <option value="3">Hoco</option>
+        </select>
+    </div>
+
+    <!-- Product Media -->
+    <div class="card">
+        <h2>Product Media</h2>
+
+        <label>Upload Main Image</label>
+        <input type="file" name="product_image" accept="image/*" required>
+
+        <label>Gallery Images</label>
+        <input type="file" name="gallery_images[]" accept="image/*" multiple>
+    </div>
+
+    <!-- Short Description -->
+    <div class="card">
+        <h2>Short Description</h2>
+        <textarea name="short_description" rows="4" placeholder="Brief product summary"></textarea>
+    </div>
+
+    <!-- Full Description -->
+    <div class="card">
+        <h2>Full Description</h2>
+        <textarea name="full_description" rows="8" placeholder="Detailed product description"></textarea>
+    </div>
+
+    <!-- Pricing -->
+    <div class="card">
+        <h2>Pricing</h2>
+
+        <label>Regular Price *</label>
+        <input type="number" step="0.01" name="regular_price" required>
+
+        <label>Sale Price</label>
+        <input type="number" step="0.01" name="sale_price">
+    </div>
+
+    <!-- Inventory -->
+    <div class="card">
+        <h2>Inventory</h2>
+
+        <label>SKU</label>
+        <input type="text" name="sku">
+
+        <label>Stock Quantity</label>
+        <input type="number" name="stock_quantity" value="0">
+    </div>
+
+    <!-- SEO -->
+    <div class="card">
+        <h2>SEO Information</h2>
+
+        <label>Meta Title</label>
+        <input type="text" name="meta_title">
+
+        <label>Meta Description</label>
+        <textarea name="meta_description"></textarea>
+
+        <label>Focus Keyword</label>
+        <input type="text" name="focus_keyword">
+    </div>
+
+    <!-- Publication Status -->
+    <div class="card">
+        <h2>Publication Status</h2>
+
+        <select name="status">
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+        </select>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+        <button type="reset">Cancel</button>
+        <button type="submit">Save Product</button>
+    </div>
+
+</form>
