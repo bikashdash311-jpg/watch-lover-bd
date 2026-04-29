@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopz Admin Dashboard</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f7f8fb;color:#111}
+.admin{display:flex;min-height:100vh}
+
+/* Sidebar */
+.sidebar{
+  width:260px;background:#fff;padding:20px;
+  border-right:1px solid #eee;position:fixed;top:0;bottom:0
+}
+.logo{font-size:26px;font-weight:800;margin-bottom:25px}
+.logo span{background:#6c4df6;color:#fff;padding:12px 16px;border-radius:14px;margin-right:8px}
+.new-btn{
+  background:#6c4df6;color:#fff;padding:14px;
+  border-radius:10px;text-align:center;font-weight:bold;margin-bottom:25px
+}
+.menu-title{color:#6c4df6;font-size:13px;font-weight:bold;margin:20px 0}
+.menu a{
+  display:block;padding:14px 12px;border-radius:10px;
+  margin-bottom:6px;color:#333;text-decoration:none;font-weight:600
+}
+.menu a.active,.menu a:hover{background:#f0edff;color:#5a3df0}
+
+/* Main */
+.main{margin-left:260px;width:calc(100% - 260px)}
+.topbar{
+  height:75px;background:#fff;border-bottom:1px solid #eee;
+  display:flex;align-items:center;justify-content:space-between;padding:0 40px
+}
+.search input{
+  width:360px;padding:14px 18px;border:1px solid #ddd;border-radius:10px
+}
+.user{font-weight:bold}
+
+.content{padding:45px}
+.page-title{display:flex;align-items:center;gap:15px;margin-bottom:35px}
+.icon{background:#6c4df6;color:#fff;padding:15px;border-radius:14px;font-size:25px}
+.page-title h1{font-size:38px}
+.page-title p{color:#777;margin-top:6px}
+
+/* Cards */
+.cards{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:35px
+}
+.card{
+  background:#fff;border-radius:18px;padding:28px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08)
+}
+.card h3{color:#6b7280;font-size:17px;margin-bottom:18px}
+.card h2{font-size:34px}
+.blue{color:#2563eb}.green{color:#16a34a}.red{color:#dc2626}
+.orange{color:#d18a00}.purple{color:#9333ea}
+
+/* Table */
+.table-box{
+  background:#fff;border-radius:18px;padding:25px;
+  box-shadow:0 8px 20px rgba(0,0,0,.06)
+}
+.table-top{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.table-top input,.table-top select{
+  padding:13px;border:1px solid #ddd;border-radius:8px
+}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:15px;border-bottom:1px solid #eee}
+th{color:#666}
+.status{padding:6px 12px;border-radius:20px;background:#e8fff1;color:#16a34a;font-weight:bold}
+
+/* Mobile */
+@media(max-width:900px){
+  .sidebar{position:relative;width:100%}
+  .admin{display:block}
+  .main{margin-left:0;width:100%}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .topbar{padding:15px;height:auto}
+  .search input{width:100%}
+}
+@media(max-width:600px){
+  .cards{grid-template-columns:1fr}
+  .content{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<div class="admin">
+
+  <aside class="sidebar">
+    <div class="logo"><span>S</span>Shopz</div>
+    <div class="new-btn">+ New Product</div>
+
+    <div class="menu-title">STORE MANAGEMENT</div>
+    <div class="menu">
+      <a href="#">Dashboard</a>
+      <a href="#">Sales Report</a>
+      <a class="active" href="#">Orders</a>
+      <a href="#">Products</a>
+      <a href="#">Categories</a>
+      <a href="#">Brands</a>
+      <a href="#">Attributes</a>
+      <a href="#">Coupons</a>
+      <a href="#">Reviews</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="search">
+        <input type="text" placeholder="Search products, orders...">
+      </div>
+      <div class="user">Bikash Dash<br><small>Admin</small></div>
+    </div>
+
+    <div class="content">
+      <div class="page-title">
+        <div class="icon">📦</div>
+        <div>
+          <h1>Orders</h1>
+          <p>Manage and track customer orders</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3>All Orders</h3>
+          <h2>116332</h2>
+        </div>
+        <div class="card">
+          <h3>Pending</h3>
+          <h2 class="orange">648</h2>
+        </div>
+        <div class="card">
+          <h3>Confirmed</h3>
+          <h2 class="blue">8</h2>
+        </div>
+        <div class="card">
+          <h3>Processing</h3>
+          <h2 class="blue">14762</h2>
+        </div>
+        <div class="card">
+          <h3>Ready for Dispatch</h3>
+          <h2 class="purple">12</h2>
+        </div>
+        <div class="card">
+          <h3>Shipped</h3>
+          <h2 class="purple">30557</h2>
+        </div>
+        <div class="card">
+          <h3>Delivered</h3>
+          <h2 class="green">20786</h2>
+        </div>
+        <div class="card">
+          <h3>Cancelled</h3>
+          <h2 class="red">48539</h2>
+        </div>
+      </div>
+
+      <div class="table-box">
+        <div class="table-top">
+          <input type="text" placeholder="Search orders, customers">
+          <input type="date">
+          <select>
+            <option>All Status</option>
+            <option>Pending</option>
+            <option>Delivered</option>
+            <option>Cancelled</option>
+          </select>
+          <select>
+            <option>All Payment</option>
+            <option>Cash on Delivery</option>
+            <option>Bkash</option>
+          </select>
+        </div>
+
+        <table>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>#1001</td>
+            <td>Rahim</td>
+            <td>৳8,500</td>
+            <td><span class="status">Delivered</span></td>
+          </tr>
+          <tr>
+            <td>#1002</td>
+            <td>Karim</td>
+            <td>৳6,200</td>
+            <td><span class="status">Pending</span></td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+</body>
+</html>
